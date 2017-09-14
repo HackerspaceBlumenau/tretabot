@@ -1,0 +1,27 @@
+{
+  "name": "tretabot",
+  "version": "1.0.0",
+  "description": "Bot plantador de tretas @ slack hackerspaceblumenau",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackerspaceblumenau/tretabot.git"
+  },
+  "keywords": [
+    "treta",
+    "slack",
+    "hackerspaceblumenau"
+  ],
+  "author": "ricardobrg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hackerspaceblumenau/tretabot/issues"
+  },
+  "homepage": "https://github.com/hackerspaceblumenau/tretabot#readme",
+  "dependencies": {
+    "@slack/client": "^3.13.0"
+  }
+}
