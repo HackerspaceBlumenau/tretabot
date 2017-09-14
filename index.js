@@ -21,7 +21,7 @@ rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
 	//check if it's a message
 	if (message.type == "message"){	
 		//TODO check if it's DM or channel			
-		//split the >
+		//split the > TODO improve regex
 		var split = (message.text).split(/(&gt\;)/);
 		//is it a treta???
 		if (split.length>1){
