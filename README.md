@@ -1,2 +1,2 @@
 # tretabot
-The trata has been planted!
+The treta has been planted!
