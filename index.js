@@ -10,13 +10,11 @@ var rtm = new RtmClient(bot_token);
 
 //TODO listen to mentions
 
-//add server for heroku
-http = require 'http'
-handle = (req, res) -> res.end "hit"
-
-server = http.createServer handle
-
-server.listen process.env.PORT || 5000
+//add server for slackapi @ heroku -> https://github.com/slackapi/node-slack-sdk/issues/39
+var http = require ('http');
+http.createServer(function(req, res){
+   res.end("hit");
+}).listen(process.env.PORT || 5000)
 
 //listen to messages and plant the treta
 rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
