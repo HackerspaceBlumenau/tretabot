@@ -19,10 +19,10 @@ http.createServer(function(req, res){
 //listen to messages and plant the treta
 rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
 	//check if it's a message
-	if (message.type == "message"){	
+	if (message.type == "message" && message.text != undefined){	
 		//TODO check if it's DM or channel			
-		//split the > TODO improve regex
-		var split = (message.text).split(/(&gt\;)/);
+		//split the > using positive lookahead to avoid citation match
+		var split = (message.text).split(/(?!^)(&gt\;|&lt\;)/);
 		//is it a treta???
 		if (split.length>1){
 		//reverse the comparison
