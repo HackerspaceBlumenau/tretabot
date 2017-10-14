@@ -11,30 +11,30 @@ var rtm = new RtmClient(bot_token);
 //TODO listen to mentions
 
 //add server for slackapi @ heroku -> https://github.com/slackapi/node-slack-sdk/issues/39
-var http = require ('http');
-http.createServer(function(req, res){
-   res.end("hit");
+var http = require('http');
+http.createServer(function (req, res) {
+	res.end("hit");
 }).listen(process.env.PORT || 5000)
 
 //listen to messages and plant the treta
 rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
 	//check if it's a message
-	if (message.type == "message" && message.text != undefined){	
+	if (message.type == "message" && message.text != undefined) {
 		//TODO check if it's DM or channel			
 		//split the > using positive lookahead to avoid citation match
 		var split = (message.text).split(/(?!^)(&gt\;|&lt\;)/);
 		//is it a treta???
-		if (split.length>1){
-		//reverse the comparison
-	                var response = split.reverse().join('');
+		if (split.length > 1) {
+			//reverse the comparison
+			var response = split.reverse().join('');
 			//do it!
-    			rtm.sendMessage(response, message.channel);
+			rtm.sendMessage(response, message.channel);
 			//mission accomplished...
-        	        console.log("the treta has been planted: " + response);
-	        }else{	
+			console.log("the treta has been planted: " + response);
+		} else {
 			//it's not a treta
 			console.log("just silly talk...");
-        	}
+		}
 	}
 });
 
