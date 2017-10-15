@@ -29,7 +29,7 @@ rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
 			var response;
 			//generate a random number to get some chance to do some extra actinos
 			var randomNumber = Math.floor((Math.random()*100) + 1);
-			if(randomNumber < 20) {
+			if(randomNumber < 10) {
 				response = "Isso mesmo! " + message.text;
 			} else {
 				//Reverse the comparison
