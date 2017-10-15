@@ -23,10 +23,23 @@ rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
 		//TODO check if it's DM or channel			
 		//split the > using positive lookahead to avoid citation match
 		var split = (message.text).split(/(?!^)(&gt\;|&lt\;)/);
+
 		//is it a treta???
 		if (split.length > 1) {
-			//reverse the comparison
-			var response = split.reverse().join('');
+			var response;
+			//generate a random number to get some chance to do some extra actinos
+			var randomNumber = Math.floor((Math.random()*100) + 1);
+			if(randomNumber < 20) {
+				response = "Isso mesmo! " + message.text;
+			} else {
+				//Reverse the comparison
+				//Some chance of appending some text
+				if(randomNumber > 80) {
+					response = "Calma aí, não é bem assim... é: " + split.reverse().join('');
+				} else {
+					response = split.reverse().join('');
+				}
+			}
 			//do it!
 			rtm.sendMessage(response, message.channel);
 			//mission accomplished...
